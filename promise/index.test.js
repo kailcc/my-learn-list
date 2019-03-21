@@ -22,4 +22,14 @@ describe('test MyPromise', () => {
       expect(reason).toBe('error')
     })
   })
+
+  test('链式调用', () => {
+    return new MyPromise((resolve) => {
+      setTimeout(() => resolve('chain'), 0)
+    })
+    .then(value => value + 'promise2')
+    .then(value => {
+      expect(value).toBe('chainpromise2')
+    })
+  })
 });
