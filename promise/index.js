@@ -40,11 +40,11 @@ class Promise {
 
   then(onFulfilled, onRejected) {
     if (this.state === 'fulfilled') {
-      onFulfilled(value)
+      onFulfilled(this.value)
     }
 
     else if (this.state === 'rejected') {
-      onRejected(reason)
+      onRejected(this.reason)
     }
 
     else if (this.state === 'pending') {
